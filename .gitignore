@@ -5,6 +5,7 @@ bin/
 *.pydevproject
 .project
 .metadata
+bin/
 tmp/
 *.tmp
 *.bak
@@ -213,4 +214,3 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
-
