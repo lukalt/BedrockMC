@@ -1,12 +1,16 @@
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+
+import javax.imageio.ImageIO;
 
 import org.bedrockmc.api.BedrockMC;
 import org.bedrockmc.api.BindedKey;
@@ -193,9 +197,27 @@ public class BedrockClient implements Client {
 	}
 
 	@Override
-	public ModIcon createModIcon(BufferedImage image) {
-		Exceptions.unimplemented();
-		return null;
+	public ModIcon createModIcon(BufferedImage image) { 
+		int id = -1;
+	
+		if(image != null) {
+			Texture texture = bindTexture(image);
+			id = texture.getTextureId();
+		}
+		final int gid = id;
+		
+		return new ModIcon() {
+			
+			@Override
+			public boolean hasIcon() {
+				return gid != -1;
+			}
+			
+			@Override
+			public int getIcon() {
+				return gid;
+			}
+		};
 	}
 
 	@Override
@@ -225,14 +247,16 @@ public class BedrockClient implements Client {
 
 	@Override
 	public Texture bindTexture(BufferedImage image) {
-		Exceptions.unimplemented();
-		return null;
+		blz texture = new blz(image); // new DynamicTexture
+		return new SimpleDynamicTexture(texture.b());
 	}
 
 	@Override
-	public Texture bindTexture(Mod mod, String name) {
-		Exceptions.unimplemented();
-		return null;
+	public Texture bindTexture(Mod mod, String name) throws IOException {
+		Class<?> clazz = mod.getClass();
+		InputStream inputStream = clazz.getResourceAsStream(name);
+		BufferedImage image = ImageIO.read(inputStream);
+		return this.bindTexture(image);
 	}
 
 	@Override

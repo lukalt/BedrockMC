@@ -10,7 +10,7 @@ import org.bedrockmc.api.gui.GuiScreenType;
 import org.bedrockmc.api.gui.ModGuiScreen;
 import org.bedrockmc.api.gui.TextField;
 
-public class SimpleModGuiScreen extends axu implements ModGuiScreen {
+public class SimpleModGuiScreen extends GuiScreen implements ModGuiScreen {
 
 	private GuiListener listener;
 	private GuiScreenType type = GuiScreenType.GUI_SCREEN;
@@ -52,8 +52,7 @@ public class SimpleModGuiScreen extends axu implements ModGuiScreen {
 	}
 
 	@Override
-	public void a(int mouseX, int mouseY, float f) {
-		super.a(mouseX, mouseY, f);
+	public void drawScreen(int mouseX, int mouseY, float f) {
 		for (Element el : elements) {
 			el.drawElement();
 		}

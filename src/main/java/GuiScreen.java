@@ -52,56 +52,70 @@ public class GuiScreen extends axu {
 	
 	@Override
 	public void a(int mouseX, int mouseY, float f) {
+		if(this.hasBackground()) {
+			this.drawDefaultBackground();
+		}
+		super.a(mouseX, mouseY, f);
 		this.drawScreen(mouseX, mouseY, f);
 	}
 
 	@Override
 	protected void a(char c, int i) {
+		super.a(c,i);
 		this.keyTyped(c, i);
 	}
 
 	@Override
 	public void b() {
+		super.b();
 		this.initGui();
 	}
 
 	@Override
 	protected void a(avs a) {
+		super.a(a);
 		this.actionPerformed(a);
 	}
 
 	@Override
 	public void a(int a, int b, int c) {
+		super.a(a,b,c);
 		this.mouseClicked(a, b, c);
 	}
 	
 	@Override
 	public void b(int a, int b, int c) {
+		super.b(a, b, c);
 		this.mouseReleased(a,b,c);
 	}
 	
 	@Override
 	protected void a(int a, int b, int c, long d) {
+		super.a(a,b,c,d);
 		this.mouseClickMove(a, b, c, d);
 	}
 	
 	@Override
 	public void k() {
+		super.k();
 		this.handleMouseInput();
 	}
 	
 	@Override
 	public void l() {
+		super.l();
 		this.handleKeyboardInput();
 	}
 	
 	@Override
 	public void e() {
+		super.e();
 		this.updateScreen();
 	}
 	
 	@Override
 	public void m() {
+		super.m();
 		this.onGuiClose();
 	}
 	
@@ -123,6 +137,10 @@ public class GuiScreen extends axu {
 	
 	public int getStringWidth(String i) {
 		return this.getFontRenderer().a(i);
+	}
+	
+	public boolean hasBackground() {
+		return true;
 	}
 	
 }

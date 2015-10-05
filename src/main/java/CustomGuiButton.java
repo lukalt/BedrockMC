@@ -3,7 +3,7 @@
 import org.bedrockmc.api.gui.Button;
 import org.lwjgl.input.Mouse;
 
-public class CustomGuiButton extends GuiButton implements Button{
+public class CustomGuiButton extends GuiButton implements Button {
 
 	public CustomGuiButton(int buttonId, int x, int y, int widthIn,
 			int heightIn, String buttonText) {

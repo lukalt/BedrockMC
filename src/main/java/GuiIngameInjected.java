@@ -1,4 +1,3 @@
-
 import org.bedrockmc.api.BedrockMC;
 import org.bedrockmc.api.BindedKey;
 import org.bedrockmc.api.mod.Mod;
@@ -8,11 +7,12 @@ public class GuiIngameInjected extends avo {
 
 	public avr scaledResolution;
 	private ave mc;
+
 	public GuiIngameInjected(ave mc) {
 		super(mc);
 		this.mc = mc;
 	}
-	
+
 	@Override
 	public void c() {
 		this.scaledResolution = new avr(ave.A()); // update resolution, may need rework
@@ -23,8 +23,6 @@ public class GuiIngameInjected extends avo {
 							new GuiScreenModList(
 									Minecraft.getMinecraft().m));
 		}
-		this.mc.A.b(); // debugProfilingEnd
-		this.mc.A.a("modOverlay"); // debugProfiling
 		BedrockClient client = (BedrockClient) BedrockMC.getClient();
 		for (Mod mod : client.getKeyBindings().keySet()) {
 			for (BindedKey key : client.getKeyBindings().get(mod)) {
@@ -36,7 +34,15 @@ public class GuiIngameInjected extends avo {
 		}
 		this.mc.A.b(); // debugProfilingEnd
 	}
-	
+
+	@Override
+	public void a(float f) {
+		super.a(f);
+		this.mc.A.a("modOverlay"); // debugProfiling
+
+		this.mc.A.b(); // debugProfilingEnd
+	}
+
 	public avr getScaledResoltion() {
 		return this.scaledResolution;
 	}

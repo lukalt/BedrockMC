@@ -15,7 +15,7 @@ public class GuiLabel implements Label {
 
 	@Override
 	public void drawElement() {
-		Minecraft.getMinecraft().k.a(text, x, y, 0xFFFFFFFF);
+		Minecraft.getMinecraft().k.a(text, x, y, 0xFFFFFF);
 	}
 
 	@Override

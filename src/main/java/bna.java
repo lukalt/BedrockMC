@@ -1,15 +1,13 @@
-import com.google.common.collect.ImmutableSet;
-
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 import java.util.Set;
 
-import org.bedrockmc.api.BedrockMC;
+import com.google.common.collect.ImmutableSet;
 
 /*
  * This class is used to load BedrockMC.
@@ -21,9 +19,6 @@ public class bna implements bnk {
 
 	public bna(final Map<String, File> par1) {
 		this.b = par1;
-		if (BedrockMC.getInstance() == null) {
-			BedrockMC.setClient(new BedrockClient(ave.A()));
-		}
 	}
 
 	@Override

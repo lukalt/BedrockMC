@@ -24,7 +24,6 @@ public class GuiScreenModInfo extends GuiScreen {
 
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		this.drawDefaultBackground();
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		String s = mod.getName() + " §7v. " + mod.getDescription().getVersion();
 		String author = "§7by " + mod.getDescription().getAuthor();
@@ -35,12 +34,12 @@ public class GuiScreenModInfo extends GuiScreen {
 //		if (mod.getIcon() != null && mod.getIcon().hasIcon()) {
 //			SimpleModIcon mIcon = (SimpleModIcon) mod.getIcon();
 //			int icon = mIcon.getIcon();
-//			DynamicTexture texture = mIcon.getTexture();
+//			blz texture = mIcon.getTexture();
 //			mc.getTextureManager().loadTexture(resLoc, texture);
 //			mc.getTextureManager().bindTexture(resLoc);
 //			// drawRect(width / 2 - 33, height / 2- 33, width / 2 + 33, height /
 //			// 2 + 33, 0xEEEEEEEE);
-//			drawScaledCustomSizeModalRect(width / 2 - 32, 16, 1f, 1f, 64, 64,
+//			a(getWidth() / 2 - 32, 16, 1f, 1f, 64, 64,
 //					64, 64, 64f, 64f);
 //		}
 	}
@@ -81,7 +80,6 @@ public class GuiScreenModInfo extends GuiScreen {
 
 	@Override
 	public void initGui() {
-		super.initGui();
 		GuiButton e2 = new GuiButton(3, this.getWidth() / 2 - 100,
 				this.getHeight() - 88, 100, 20, "Open Website");
 		e2.l = !mod.getDescription().getWebsite().isEmpty();

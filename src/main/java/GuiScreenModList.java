@@ -30,9 +30,7 @@ public class GuiScreenModList extends GuiScreen {
 
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		this.drawDefaultBackground();
 		this.modSelectionList.a(mouseX, mouseY, partialTicks);
-		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
 
 	@Override
@@ -78,14 +76,13 @@ public class GuiScreenModList extends GuiScreen {
 
 	@Override
 	public void initGui() {
-		super.initGui();
 		this.modSelectionList = new GuiModSelectionList(this, mc, this.getWidth(),
 				this.getHeight(), 32, this.getHeight() - 64, 36);
-		this.n.add(new GuiButton(1,
+		this.n.add(new avs(1,
 				this.getWidth() / 2 + 2, this.getHeight() - 52, 98, 20, "Reload"));
-		this.n.add(new GuiButton(3, this.getWidth() / 2 - 100,
+		this.n.add(new avs(3, this.getWidth() / 2 - 100,
 				this.getHeight() - 52, 98, 20, "Install Mod"));
-		this.n.add(new GuiButton(0, this.getWidth() / 2 - 100,
+		this.n.add(new avs(0, this.getWidth() / 2 - 100,
 				this.getHeight() - 28, "Cancel"));
 	}
 
